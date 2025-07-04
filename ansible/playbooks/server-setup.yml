@@ -1,0 +1,12 @@
+---
+- name: Insert ISO
+  dellemc.openmanage.idrac_virtual_media:
+    idrac_ip: "192.168.178.59"
+    idrac_user: "username"
+    idrac_password: "password"
+    ca_path: "/ca_cert.pem"
+    force: true
+    virtual_media:
+      - index: 1
+        insert: true
+        image: "https://enterprise.proxmox.com/iso/proxmox-ve_8.4-1.iso"
