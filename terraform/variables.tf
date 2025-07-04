@@ -18,100 +18,100 @@ variable "pm_tls_insecure" {
 }
 
 ###################
-# k0s-worker-node #
+# k0s_worker_node #
 ###################
 # General
-variable "k0s-w_target_node" {
+variable "k0s_w_target_node" {
     type = string
 }
-variable "k0s-w_vmid" {
+variable "k0s_w_vmid" {
     type = number
 }
-variable "k0s-w_name" {
+variable "k0s_w_name" {
     type = string
 }
-variable "k0s-w_onboot" {
+variable "k0s_w_onboot" {
     type = bool
 }
-variable "k0s-w_oncreate" {
+variable "k0s_w_oncreate" {
     type = oncreate
 }
 
 # OS
-variable "k0s-w_clone" {
+variable "k0s_w_clone" {
     type = string
 }
-variable "k0s-w_clone_id" {
+variable "k0s_w_clone_id" {
     type = number
 }
-variable "k0s-w_full_clone" {
+variable "k0s_w_full_clone" {
     type = bool
 }
 
 # System
-variable "k0s-w_agent" {
+variable "k0s_w_agent" {
     type = number
 }
 
 # CPU
-variable "k0s-w_sockets" {
+variable "k0s_w_sockets" {
     type = number
 }
-variable "k0s-w_cores" {
+variable "k0s_w_cores" {
     type = number
 }
 
 # Memory
-variable "k0s-w_memory" {
+variable "k0s_w_memory" {
     type = number
 }
 
 ####################
-# k0s-control-node #
+# k0s_control_node #
 ####################
 # General
-variable "k0s-c_target_node" {
+variable "k0s_c_target_node" {
     type = string
 }
-variable "k0s-c_vmid" {
+variable "k0s_c_vmid" {
     type = number
 }
-variable "k0s-c_name" {
+variable "k0s_c_name" {
     type = string
 }
-variable "k0s-c_onboot" {
+variable "k0s_c_onboot" {
     type = bool
 }
-variable "k0s-c_oncreate" {
+variable "k0s_c_oncreate" {
     type = oncreate
 }
 
 # OS
-variable "k0s-c_clone" {
+variable "k0s_c_clone" {
     type = string
 }
-variable "k0s-c_clone_id" {
+variable "k0s_c_clone_id" {
     type = number
 }
-variable "k0s-c_full_clone" {
+variable "k0s_c_full_clone" {
     type = bool
 }
 
 # System
-variable "k0s-c_agent" {
+variable "k0s_c_agent" {
     type = number
 }
 
 # CPU
-variable "k0s-c_sockets" {
+variable "k0s_c_sockets" {
     type = number
 }
-variable "k0s-c_cores" {
+variable "k0s_c_cores" {
     type = number
 }
 
 # Memory
-variable "k0s-c_memory" {
+variable "k0s_c_memory" {
     type = number
 }
 
@@ -164,7 +164,9 @@ variable "wings_memory" {
     type = number
 }
 
-# homeassistant-os
+####################
+# homeassistant_os #
+####################
 
 # Cloud-Init
 variable "ci_wait" {
