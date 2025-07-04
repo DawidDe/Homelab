@@ -10,3 +10,4 @@
       - index: 1
         insert: true
         image: "https://enterprise.proxmox.com/iso/proxmox-ve_8.4-1.iso"
+        
