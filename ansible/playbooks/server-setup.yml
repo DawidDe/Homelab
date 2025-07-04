@@ -1,10 +1,10 @@
 ---
 - name: Insert ISO
   dellemc.openmanage.idrac_virtual_media:
-    idrac_ip: "192.168.178.59"
-    idrac_user: "username"
-    idrac_password: "password"
-    ca_path: "/ca_cert.pem"
+    idrac_ip: {{ idrac_ip }}
+    idrac_user: {{ idrac_user }}
+    idrac_password: {{ idrac_password }}
+    ca_path: {{ ca_path }}
     force: true
     virtual_media:
       - index: 1
@@ -13,10 +13,10 @@
 
 - name: Set CD as boot device
   dellemc.openmanage.idrac_boot:
-    idrac_ip: 
-    idrac_user: 
-    idrac_password: 
-    ca_path: 
+    idrac_ip: {{ idrac_ip }}
+    idrac_user: {{ idrac_user }}
+    idrac_password: {{ idrac_password }}
+    ca_path: {{ ca_path }}
     boot_source_override_mode: legacy
     boot_source_override_target: cd
     boot_source_override_enabled: once
