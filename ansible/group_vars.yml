@@ -1,4 +1,8 @@
+# idrac settings
 idrac_ip: "192.168.178.59"
 idrac_user: "dawid"
 idrac_password: "dawid"
 ca_path: "/ca.pem"
+
+# Proxmox settings
+proxmox_password: "dawiddawid"
