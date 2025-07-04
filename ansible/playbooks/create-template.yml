@@ -1,0 +1,31 @@
+---
+- name: Download Cloud Image
+  ansible.builtin.get_url:
+    url: https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img
+    dest: cloudimg.img
+
+- name: Create VM
+  ansible.builtin.command: qm create 9000 -name ubuntu --memory 2048 --net0 virtio,bridge=vmbr0
+
+- name: Import Cloud Image
+  ansible.builtin.command: qm importdisk 9000 cloudimg.img local-zfs
+
+- name: Attach Disk
+  ansible.builtin.command: qm set 9000 --scsihw virtio-scsi-pci --scsi0 local-zfs:vm-9000-disk-0
+
+- name: Set boot Disk
+  ansible.builtin.command: qm set 9000 --boot c --bootdisk scsi0
+
+- name: Add Cloud-Init Drive
+  ansible.builtin.command: qm set 9000 --ide2 local-zfs:cloudinit
+
+- name: Enable serial console
+  ansible.builtin.command: qm set 9000 --serial0 socket --vga serial0
+
+- name: Convert to Template
+  ansible.builtin.command: qm template 9000
+
+- name: delete Image
+  ansible.builtin.file:
+    path: cloudimg.img
+    state: absent
