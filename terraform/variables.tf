@@ -1,4 +1,6 @@
-# General
+###########
+# General #
+###########
 
 variable "pm_api_url" {
     type = string
@@ -15,7 +17,9 @@ variable "pm_tls_insecure" {
     type = bool
 }
 
-# k0s-worker-node
+###################
+# k0s-worker-node #
+###################
 # General
 variable "k0s-w_target_node" {
     type = string
@@ -62,7 +66,9 @@ variable "k0s-w_memory" {
     type = number
 }
 
-# k0s-control-node
+####################
+# k0s-control-node #
+####################
 # General
 variable "k0s-c_target_node" {
     type = string
@@ -109,7 +115,54 @@ variable "k0s-c_memory" {
     type = number
 }
 
-# wings
+#########
+# wings #
+#########
+# General
+variable "wings_target_node" {
+    type = string
+}
+variable "wings_vmid" {
+    type = number
+}
+variable "wings_name" {
+    type = string
+}
+variable "wings_onboot" {
+    type = bool
+}
+variable "wings_oncreate" {
+    type = oncreate
+}
+
+# OS
+variable "wings_clone" {
+    type = string
+}
+variable "wings_clone_id" {
+    type = number
+}
+variable "wings_full_clone" {
+    type = bool
+}
+
+# System
+variable "wings_agent" {
+    type = number
+}
+
+# CPU
+variable "wings_sockets" {
+    type = number
+}
+variable "wings_cores" {
+    type = number
+}
+
+# Memory
+variable "wings_memory" {
+    type = number
+}
 
 # homeassistant-os
 
