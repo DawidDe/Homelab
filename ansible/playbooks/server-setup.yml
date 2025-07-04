@@ -1,22 +1,27 @@
 ---
-- name: Insert ISO
-  dellemc.openmanage.idrac_virtual_media:
-    idrac_ip: {{ idrac_ip }}
-    idrac_user: {{ idrac_user }}
-    idrac_password: {{ idrac_password }}
-    ca_path: {{ ca_path }}
-    force: true
-    virtual_media:
-      - index: 1
-        insert: true
-        image: "https://enterprise.proxmox.com/iso/proxmox-ve_8.4-1.iso"
-
-- name: Set CD as boot device
-  dellemc.openmanage.idrac_boot:
-    idrac_ip: {{ idrac_ip }}
-    idrac_user: {{ idrac_user }}
-    idrac_password: {{ idrac_password }}
-    ca_path: {{ ca_path }}
-    boot_source_override_mode: legacy
-    boot_source_override_target: cd
-    boot_source_override_enabled: once
+- name: Server Setup Playbook
+  hosts: localhost
+  gather_facts: false
+  vars_files:
+    - ../group_vars.yml
+  tasks:
+    - name: Insert ISO
+      dellemc.openmanage.idrac_virtual_media:
+        idrac_ip: "{{ idrac_ip }}"
+        idrac_user: "{{ idrac_user }}"
+        idrac_password: "{{ idrac_password }}"
+        ca_path: "{{ ca_path }}"
+        force: true
+        virtual_media:
+          - index: 1
+            insert: true
+            image: "https://enterprise.proxmox.com/iso/proxmox-ve_8.4-1.iso"
+    - name: Set CD as boot device
+      dellemc.openmanage.idrac_boot:
+        idrac_ip: "{{ idrac_ip }}"
+        idrac_user: "{{ idrac_user }}"
+        idrac_password: "{{ idrac_password }}"
+        ca_path: "{{ ca_path }}"
+        boot_source_override_mode: legacy
+        boot_source_override_target: cd
+        boot_source_override_enabled: once
