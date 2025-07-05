@@ -5,7 +5,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && apt upgrade -y && apt install -y \
     ansible \
     terraform \
-    wget \
-    proxmox-auto-install-assistant 
+    proxmox-auto-install-assistant \
+    python3
 
 COPY ./src /app
+
+RUN chmod +x /app/setup.sh
+
+CMD ["/app/setup.sh"]
