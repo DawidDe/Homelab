@@ -15,7 +15,7 @@
         virtual_media:
           - index: 1
             insert: true
-            image: "https://enterprise.proxmox.com/iso/proxmox-ve_8.4-1.iso"
+            image: "http://{{ webserver_ip }}:8000/proxmox-iso/proxmox-auto.iso"
 
     - name: Set CD as boot device
       dellemc.openmanage.idrac_boot:

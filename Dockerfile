@@ -9,6 +9,7 @@ RUN apt update && apt upgrade -y && apt install -y \
     python3
 
 COPY ./src /app
+COPY ~/.ssh/master /app/ssh-key/master
 
 RUN chmod +x /app/setup.sh
 

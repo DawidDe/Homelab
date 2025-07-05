@@ -19,4 +19,4 @@ ansible-playbook ansible/playbooks/server-setup.yml
 sleep 300
 
 # Step 5 Setup Proxmox
-ansible-playbook -i ansible/inventory.ini ansible/playbooks/proxmox-setup.yml --user root --private-key ~/.ssh/master
+ansible-playbook -i ansible/inventory.ini ansible/playbooks/proxmox-setup.yml --user root --private-key ssh-key/master
